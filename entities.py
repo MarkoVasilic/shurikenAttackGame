@@ -9,6 +9,8 @@ def rk4It(xi, yi, h, f):
     k4 = f(xi + h, yi + k3*h)
     return yi + h/6*(k1 + 2*k2 + 2*k3 + k4)
 
+
+
 class Arrow:
 
     def __init__(self, bottom1: pygame.Vector2, bottom2: pygame.Vector2, bottom3: pygame.Vector2, middle1: pygame.Vector2, middle2: pygame.Vector2, middle3: pygame.Vector2, middle4: pygame.Vector2, top: pygame.Vector2, rotation_angle: int, screen):
@@ -54,12 +56,15 @@ class Arrow:
         self.update_coordinates()
         pygame.draw.polygon(self.screen, (69, 0, 0), self.arrow_coordinates)
 
+
+
 class Square:
     def __init__(self, top_left: pygame.Vector2, top_right: pygame.Vector2, bottom_left: pygame.Vector2, bottom_right: pygame.Vector2, screen):
 
         self.coordinates = [top_left, top_right, bottom_right, bottom_left]
         self.screen = screen
         self.age = 0
+        self.velocity = pygame.Vector2(2, 0)
 
     def get_center(self):
         return pygame.Vector2((self.coordinates[0][0] + self.coordinates[2][0]) / 2, (self.coordinates[0][1] + self.coordinates[2][1]) / 2)
@@ -73,34 +78,52 @@ class Square:
                 maxV = newV
                 retV = v
         return retV
+    
+    def move(self):
+        self.coordinates[0][0] = rk4It(self.age, self.coordinates[0][0], 1, lambda t, x : self.velocity[0])
+        self.coordinates[0][1] = rk4It(self.age, self.coordinates[0][1], 1, lambda t, x : self.velocity[1])
+        
+        self.coordinates[1][0] = rk4It(self.age, self.coordinates[1][0], 1, lambda t, x : self.velocity[0])
+        self.coordinates[1][1] = rk4It(self.age, self.coordinates[1][1], 1, lambda t, x : self.velocity[1])
+        
+        self.coordinates[2][0] = rk4It(self.age, self.coordinates[2][0], 1, lambda t, x : self.velocity[0])
+        self.coordinates[2][1] = rk4It(self.age, self.coordinates[2][1], 1, lambda t, x : self.velocity[1])
+        
+        self.coordinates[3][0] = rk4It(self.age, self.coordinates[3][0], 1, lambda t, x : self.velocity[0])
+        self.coordinates[3][1] = rk4It(self.age, self.coordinates[3][1], 1, lambda t, x : self.velocity[1])
+
 
     def tick(self):
         self.age = self.age + 1
+        self.move()
+        if self.age % 90 == 0:
+            self.velocity = -self.velocity
         pygame.draw.polygon(self.screen, (0, 255, 0), [self.coordinates[0], self.coordinates[1], self.coordinates[2], self.coordinates[3]])
+
 
 
 class Ball:
     
     def __init__(self, x: float, y:  float, r: float, v: (float, float), screen):        # konstruktor uzima parametre x, y, poluprecnik, brzina, screen (pygame.display)
         
-        self.center = np.array((x,y), float)
+        self.center = pygame.Vector2((x,y))
         self.screen = screen
         self.radius = r
-        self.velocity = np.array(v)
+        self.velocity = pygame.Vector2(v)
         self.age = 0
 
     def update_pos(self):       # metoda za azuriranje polozaja pomocu rk4
-        self.center[0] = rk4It(self.age, self.center[0], 1, lambda t, x : self.velocity[0])
-        self.center[1] = rk4It(self.age, self.center[1], 1, lambda t, y : self.velocity[1])
+        self.center.x = rk4It(self.age, self.center.y, 1, lambda t, x : self.velocity.x)
+        self.center.y = rk4It(self.age, self.center.x, 1, lambda t, y : self.velocity.y)
 
-    def update_velocity(self, newV):
+    def update_velocity(self, newV : pygame.Vector2):
         self.velocity = newV
 
     def set_center(self, x, y):
-        self.center = np.array((x, y), float)
+        self.center = pygame.Vector2(x,y)
 
     def get_center(self):
-        c = pygame.Vector2(self.center[0], self.center[1])
+        c = pygame.Vector2(self.center.x, self.center.y)
         return c
 
     def support_function(self, d):
@@ -117,29 +140,28 @@ class Ball:
 class Shuriken:
     def __init__(self, x : float, y : float, v : (float, float), screen):       # konstruktor uzima parametre x, y, brzina, screen (pygame.display)
         
-        self.center = np.array((x, y), float)
+        self.center = pygame.Vector2(x, y)
         self.screen = screen
-        self.blade_from_center = np.array([np.array((-20, -20)),
-                                np.array((-20, -20)) + np.array((0, -100)),
-                                np.array((20, -20)) + np.array((0, -80)),
-                                np.array((20, -20))
-                                ])
+        self.blade_from_center = [pygame.Vector2((-20, -20)),
+                                pygame.Vector2((-20, -20)) + pygame.Vector2((0, -100)),
+                                pygame.Vector2((20, -20)) + pygame.Vector2((0, -80)),
+                                pygame.Vector2((20, -20))
+                                ]
         self.angle = 0
         self.angular_velocity = np.pi/180
         self.age = 0
-        self.velocity = np.array(v)
+        self.velocity = pygame.Vector2(v)
         
-        self.update_rotation_matrices()
 
         # lista svih ostrica surikena
         self.blades = []
         # u listu se dodaje 4 ostrice koje se crtaju redom po rotaciji, for petlja prolazi kroz sve 4 rotacije ostrica i za svaku nacrta sva 4 temena poligona ostrice
         for i in range(0,4):
-            self.blades.append(np.array([self.center + self.rotation_matrices[i].dot(self.blade_from_center[0]),
-                                        self.center + self.rotation_matrices[i].dot(self.blade_from_center[1]),
-                                        self.center + self.rotation_matrices[i].dot(self.blade_from_center[2]),
-                                        self.center + self.rotation_matrices[i].dot(self.blade_from_center[3])
-                                        ]))
+            self.blades.append([self.center + self.blade_from_center[0].rotate_rad(self.angle + i*(np.pi/2)),
+                                self.center + self.blade_from_center[1].rotate_rad(self.angle + i*(np.pi/2)),
+                                self.center + self.blade_from_center[2].rotate_rad(self.angle + i*(np.pi/2)),
+                                self.center + self.blade_from_center[3].rotate_rad(self.angle + i*(np.pi/2))
+                                ])
 
     def update_velocity(self, newV):
         self.velocity = newV
@@ -148,8 +170,7 @@ class Shuriken:
         self.center = np.array((x, y), float)
 
     def get_center(self):
-        c = pygame.Vector2(self.center[0], self.center[1])
-        return c
+        return pygame.Vector2(self.center[0], self.center[1])
 
     def support_function(self, d):
         vector2Blades = []
@@ -175,27 +196,22 @@ class Shuriken:
 
     def update_rotation_matrices(self):     # metoda za azuriranje rotacionih matrica na osnovu trenutnog ugla
         
-        # matrice se odredjuju pomocu formule rotacione matrice, razmaknute su za po 90 stepeni
-        # [[cos(x)   -sin(x)]
-        #  [sin(x)   cos(x)]]
-        self.rotation_matrices = [np.array([[np.cos(self.angle),-np.sin(self.angle)],[np.sin(self.angle), np.cos(self.angle)]]),
-                                np.array([[np.cos(self.angle+np.pi/2),-np.sin(self.angle+np.pi/2)],[np.sin(self.angle+np.pi/2), np.cos(self.angle+np.pi/2)]]),
-                                np.array([[np.cos(self.angle+np.pi),-np.sin(self.angle+np.pi)],[np.sin(self.angle+np.pi), np.cos(self.angle+np.pi)]]),
-                                np.array([[np.cos(self.angle+3*np.pi/2),-np.sin(self.angle+3*np.pi/2)],[np.sin(self.angle+3*np.pi/2), np.cos(self.angle+3*np.pi/2)]]),
-                            ]
+        self.rotation_matrices = [  np.array([[np.cos(self.angle),-np.sin(self.angle)],[np.sin(self.angle), np.cos(self.angle)]]),
+                                    np.array([[np.cos(self.angle+np.pi/2),-np.sin(self.angle+np.pi/2)],[np.sin(self.angle+np.pi/2), np.cos(self.angle+np.pi/2)]]),
+                                    np.array([[np.cos(self.angle+np.pi),-np.sin(self.angle+np.pi)],[np.sin(self.angle+np.pi), np.cos(self.angle+np.pi)]]),
+                                    np.array([[np.cos(self.angle+3*np.pi/2),-np.sin(self.angle+3*np.pi/2)],[np.sin(self.angle+3*np.pi/2), np.cos(self.angle+3*np.pi/2)]]),
+                                    ]
         
     # metoda za azuriranje poligona koji sacinjavaju suriken
     def update_polygons(self):
         
-        self.update_rotation_matrices()
-        
         # poligoni ostrica se azuriraju analogno prvoj kreaciji u konstruktoru
         for i in range(0,4):
-            self.blades[i] = np.array([self.center + self.rotation_matrices[i].dot(self.blade_from_center[0]),
-                                        self.center + self.rotation_matrices[i].dot(self.blade_from_center[1]),
-                                        self.center + self.rotation_matrices[i].dot(self.blade_from_center[2]),
-                                        self.center + self.rotation_matrices[i].dot(self.blade_from_center[3])
-                                        ])
+            self.blades[i] = [  self.center + self.blade_from_center[0].rotate_rad(self.angle + i*(np.pi/2)),
+                                self.center + self.blade_from_center[1].rotate_rad(self.angle + i*(np.pi/2)),
+                                self.center + self.blade_from_center[2].rotate_rad(self.angle + i*(np.pi/2)),
+                                self.center + self.blade_from_center[3].rotate_rad(self.angle + i*(np.pi/2))
+                                ]
 
     def tick(self):
         self.age = self.age + 1

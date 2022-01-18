@@ -68,7 +68,7 @@ while running:
         top[1] = top[1] - bottom[1]
         top = top / top.magnitude()
         if select == "ball":
-            ball.update_velocity(np.array((top[0], top[1])))
+            ball.update_velocity(pygame.Vector2(top[0], top[1]))
             ball.tick()
         elif select == "shuriken":
             shuriken.update_velocity(np.array((top[0], top[1])))
