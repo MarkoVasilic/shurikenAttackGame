@@ -113,8 +113,8 @@ class Ball:
         self.age = 0
 
     def update_pos(self):       # metoda za azuriranje polozaja pomocu rk4
-        self.center.x = rk4It(self.age, self.center.y, 1, lambda t, x : self.velocity.x)
-        self.center.y = rk4It(self.age, self.center.x, 1, lambda t, y : self.velocity.y)
+        self.center.x = rk4It(self.age, self.center.x, 1, lambda t, x : self.velocity.x)
+        self.center.y = rk4It(self.age, self.center.y, 1, lambda t, y : self.velocity.y)
 
     def update_velocity(self, newV : pygame.Vector2):
         self.velocity = newV
@@ -167,7 +167,7 @@ class Shuriken:
         self.velocity = newV
 
     def set_center(self, x, y):
-        self.center = np.array((x, y), float)
+        self.center = pygame.Vector2((x, y))
 
     def get_center(self):
         return pygame.Vector2(self.center[0], self.center[1])
@@ -194,14 +194,6 @@ class Shuriken:
     def update_angle(self):     # metoda za azuriranje ugla rotacije pomocu rk4
         self.angle = rk4It(self.age, self.angle, 1, lambda t, theta : self.angular_velocity)
 
-    def update_rotation_matrices(self):     # metoda za azuriranje rotacionih matrica na osnovu trenutnog ugla
-        
-        self.rotation_matrices = [  np.array([[np.cos(self.angle),-np.sin(self.angle)],[np.sin(self.angle), np.cos(self.angle)]]),
-                                    np.array([[np.cos(self.angle+np.pi/2),-np.sin(self.angle+np.pi/2)],[np.sin(self.angle+np.pi/2), np.cos(self.angle+np.pi/2)]]),
-                                    np.array([[np.cos(self.angle+np.pi),-np.sin(self.angle+np.pi)],[np.sin(self.angle+np.pi), np.cos(self.angle+np.pi)]]),
-                                    np.array([[np.cos(self.angle+3*np.pi/2),-np.sin(self.angle+3*np.pi/2)],[np.sin(self.angle+3*np.pi/2), np.cos(self.angle+3*np.pi/2)]]),
-                                    ]
-        
     # metoda za azuriranje poligona koji sacinjavaju suriken
     def update_polygons(self):
         

@@ -71,7 +71,7 @@ while running:
             ball.update_velocity(pygame.Vector2(top[0], top[1]))
             ball.tick()
         elif select == "shuriken":
-            shuriken.update_velocity(np.array((top[0], top[1])))
+            shuriken.update_velocity(pygame.Vector2(top[0], top[1]))
             shuriken.tick()
     if select == "ball":
         screen.blit(ball_image, (0, 0))
