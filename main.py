@@ -29,12 +29,16 @@ ball_image = pygame.image.load('images/ball.png')
 ball_image = pygame.transform.smoothscale(ball_image, (30, 30))
 shuriken_image = pygame.image.load('images/shuriken.png')
 shuriken_image = pygame.transform.smoothscale(shuriken_image, (30, 30))
+
+entity_list = []
+entity_list.append(entities.Square(top_left, top_right, bottom_left, bottom_right, [[(3, 0), 60],[(0, 3), 60],[(-3, 0), 60],[(0, -3), 60]], screen))
 shuriken = entities.Shuriken(400, 600, (0, 0), screen)
 ball = entities.Ball(400, 600, 10, (0, 0), screen)
-square = entities.Square(top_left, top_right, bottom_left, bottom_right, screen)
 clock = pygame.time.Clock()
 select = "shuriken"
 arrow = entities.Arrow(bottom1, bottom2, bottom3, middle1, middle2, middle3, middle4, topArrow, 0, screen)
+entity_list.append(arrow)
+projectile = -1
 while running:
 
     screen.fill((255, 255, 255))
@@ -56,8 +60,8 @@ while running:
                 select = "ball"
             if event.key == pygame.K_r:
                 fire = False
-                shuriken.set_center(400, 600)
-                ball.set_center(400, 600)
+                entity_list.remove(projectile)
+                projectile = -1
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
                 arrow.update_angle(0)
@@ -67,17 +71,17 @@ while running:
         top[0] = top[0] - bottom[0]
         top[1] = top[1] - bottom[1]
         top = top / top.magnitude()
-        if select == "ball":
-            ball.update_velocity(pygame.Vector2(top[0], top[1]))
-            ball.tick()
-        elif select == "shuriken":
-            shuriken.update_velocity(pygame.Vector2(top[0], top[1]))
-            shuriken.tick()
+        if projectile == -1 :
+            if select == "ball":
+                entity_list.append(entities.Ball(topArrow[0], topArrow[1], 10, (top[0], top[1]), screen))
+            elif select == "shuriken":
+                entity_list.append(entities.Shuriken(topArrow[0], topArrow[1], (top[0], top[1]), screen))
+            projectile = entity_list[-1]
     if select == "ball":
         screen.blit(ball_image, (0, 0))
     elif select == "shuriken":
         screen.blit(shuriken_image, (0, 0))
-    square.tick()
+    for e in entity_list:
+        e.tick()
     # print(gjk.gjk(shuriken, ball))
-    arrow.tick()
     pygame.display.update()
