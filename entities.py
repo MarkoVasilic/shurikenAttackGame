@@ -120,7 +120,7 @@ class Ball:
         self.velocity = newV
 
     def set_center(self, x, y):
-        self.center = pygame.Vector2(x,y)
+        self.center = pygame.Vector2(x, y)
 
     def get_center(self):
         c = pygame.Vector2(self.center.x, self.center.y)
