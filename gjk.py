@@ -15,11 +15,25 @@ def cross_product(v1, v2, v3):
 def normalize(v):
     return v / v.magnitude()
 
+def support_function_polygon(points : [], d : pygame.Vector2):
+    maxV = points[0].dot(d)
+    retV = points[0]
+    for v in points:
+        newV = v.dot(d)
+        if maxV < newV:
+            maxV = newV
+            retV = v
+    
+    return retV
+
+def support_function_circle(circle : (pygame.Vector2, float), d : pygame.Vector2):
+    return (circle[0] + (circle[1] * d)).normalize()
+
 def support_point(s1, s2, d):
-    return s1.support_function(d) - s2.support_function(-d)
+    return s1[2](s1[1], d) - s2[2](s2[1], d)
 
 def gjk(s1, s2):
-    d = normalize(s1.get_center() - s2.get_center())
+    d = normalize(s1[0] - s2[0])
     simplex = [support_point(s1, s2, d)]
     d = ORIGIN - simplex[0]
     while True:

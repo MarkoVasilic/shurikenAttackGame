@@ -83,5 +83,15 @@ while running:
         screen.blit(shuriken_image, (0, 0))
     for e in entity_list:
         e.tick()
+    for e1 in entity_list:
+        if e1 == arrow:
+            continue
+        for e2 in entity_list:
+            if e2 == arrow:
+                continue
+            if e1 == e2:
+                continue
+            if entities.collision(e1, e2):
+                print("COLLISION")
     # print(gjk.gjk(shuriken, ball))
     pygame.display.update()
