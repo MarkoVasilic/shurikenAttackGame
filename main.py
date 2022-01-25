@@ -98,7 +98,7 @@ while running:
                 continue
             if e1 == e2:
                 continue
-            if entities.collision(e1, e2):
+            if entities.collision(e1, e2, screen):
                 print("COLLISION")
             else :
                 print("NO")
