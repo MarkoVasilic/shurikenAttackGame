@@ -10,7 +10,7 @@ def rk4It(xi, yi, h, f):
     k4 = f(xi + h, yi + k3*h)
     return yi + h/6*(k1 + 2*k2 + 2*k3 + k4)
 
-def collision(A, B):
+def collision(A, B, screen):
     if isinstance(A, Ball):
         pA = [A.get_center(), (A.get_center(), A.get_radius()), gjk.support_function_circle]
     elif isinstance(A, Square):
