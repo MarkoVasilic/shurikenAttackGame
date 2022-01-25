@@ -31,7 +31,7 @@ shuriken_image = pygame.image.load('images/shuriken.png')
 shuriken_image = pygame.transform.smoothscale(shuriken_image, (30, 30))
 
 entity_list = []
-entity_list.append(entities.Square(top_left, top_right, bottom_left, bottom_right, [((5, 0), 30), ((-5,0), 30)], screen))
+entity_list.append(entities.Square(top_left, top_right, bottom_left, bottom_right, [((100, 100), 30), ((500,500), 60)], screen))
 shuriken = entities.Shuriken(400, 600, (0, 0), screen)
 ball = entities.Ball(400, 600, 10, (0, 0), screen)
 clock = pygame.time.Clock()

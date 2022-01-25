@@ -97,7 +97,7 @@ class Square:
         self.move_pattern = move_pattern
         self.move_pattern_index = 0
         self.move_pattern_time = 0
-        self.velocity = pygame.Vector2(move_pattern[0][0])
+        self.velocity = (pygame.Vector2(move_pattern[0][0])-pygame.Vector2(self.get_center())) / move_pattern[0][1]
 
     def get_center(self):
         return pygame.Vector2((self.coordinates[0][0] + self.coordinates[2][0]) / 2, (self.coordinates[0][1] + self.coordinates[2][1]) / 2)
@@ -117,10 +117,10 @@ class Square:
     
     def move(self):
         if self.move_pattern[self.move_pattern_index][1] < self.move_pattern_time :
-            self.move_pattern_time = 0
             self.move_pattern_index = (self.move_pattern_index + 1) % len(self.move_pattern)
-            self.velocity = pygame.Vector2(self.move_pattern[self.move_pattern_index][0])
-        
+            self.velocity = (pygame.Vector2(self.move_pattern[self.move_pattern_index][0]) - pygame.Vector2(self.get_center()))/self.move_pattern[self.move_pattern_index][1]
+            self.move_pattern_time = 0
+            
         self.move_pattern_time += 1
         
         self.coordinates[0][0] = rk4It(self.age, self.coordinates[0][0], 1, lambda t, x : self.velocity[0])
