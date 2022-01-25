@@ -78,9 +78,10 @@ while running:
         top = top / top.magnitude()
         if projectile == -1 :
             if select == "ball":
-                entity_list.append(entities.Ball(topArrow[0], topArrow[1], 10, (top[0], top[1]), screen))
+               # entity_list.append(entities.Ball(topArrow[0], topArrow[1], 5, (top[0], top[1]), screen))
+               entity_list.append(entities.Ball(400, 600, 10, (top[0], top[1]), screen))
             elif select == "shuriken":
-                entity_list.append(entities.Shuriken(topArrow[0], topArrow[1], (top[0], top[1]), screen))
+                entity_list.append(entities.Shuriken(400, 600, (top[0], top[1]), screen))
             projectile = entity_list[-1]
     if select == "ball":
         screen.blit(ball_image, (0, 0))
