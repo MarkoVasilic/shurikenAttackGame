@@ -174,8 +174,8 @@ class Ball:
 
     def support_function(self, d):
         c = self.get_center()
-        retV = c + self.radius * d
-        return retV.normalize()
+        retV = c + self.radius * d.normalize()
+        return retV
 
     def tick(self):
         self.age = self.age + 1
@@ -190,10 +190,10 @@ class Shuriken:
         
         self.center = pygame.Vector2(x, y)
         self.screen = screen
-        self.blade_from_center = [pygame.Vector2((-20, -20)),
-                                pygame.Vector2((-20, -20)) + pygame.Vector2((0, -100)),
-                                pygame.Vector2((20, -20)) + pygame.Vector2((0, -80)),
-                                pygame.Vector2((20, -20))
+        self.blade_from_center = [pygame.Vector2((-5, -5)),
+                                pygame.Vector2((-5, -5)) + pygame.Vector2((0, -20)),
+                                pygame.Vector2((5, -5)) + pygame.Vector2((0, -10)),
+                                pygame.Vector2((5, -5))
                                 ]
         self.angle = 0
         self.angular_velocity = np.pi/180
