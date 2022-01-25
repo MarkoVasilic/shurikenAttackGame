@@ -1,3 +1,4 @@
+import gjk
 import pygame
 import numpy as np
 
@@ -9,7 +10,33 @@ def rk4It(xi, yi, h, f):
     k4 = f(xi + h, yi + k3*h)
     return yi + h/6*(k1 + 2*k2 + 2*k3 + k4)
 
-
+def collision(A, B):
+    if isinstance(A, Ball):
+        pA = [A.get_center(), (A.get_center(), A.get_radius()), gjk.support_function_circle]
+    elif isinstance(A, Square):
+        pA = [A.get_center(), A.get_coordinates(), gjk.support_function_polygon]
+    
+    if isinstance(B, Ball):
+        pB = [B.get_center(), (B.get_center(), B.get_radius()), gjk.support_function_circle]
+    elif isinstance(B, Square):
+        pB = [B.get_center(), B.get_coordinates(), gjk.support_function_polygon]
+    
+    if isinstance(A, Shuriken) and (isinstance(B, Ball) or isinstance(B, Square)):
+        pA = [A.get_center(), [], gjk.support_function_polygon]
+        for blade in A.blades:
+            pA[1] = blade
+            if gjk.gjk(pA, pB):
+                return True
+        return False
+    elif isinstance(B, Shuriken) and (isinstance(A, Ball) or isinstance(A, Square)):
+        pB = [B.get_center(), [], gjk.support_function_polygon]
+        for blade in B.blades:
+            pB[1] = blade
+            if gjk.gjk(pA, pB):
+                return True
+        return False
+    elif (isinstance(B, Ball) or isinstance(B, Square)) and (isinstance(A, Ball) or isinstance(A, Square)):
+        return gjk.gjk(pA, pB)
 
 class Arrow:
 
@@ -73,6 +100,9 @@ class Square:
     def get_center(self):
         return pygame.Vector2((self.coordinates[0][0] + self.coordinates[2][0]) / 2, (self.coordinates[0][1] + self.coordinates[2][1]) / 2)
 
+    def get_coordinates(self):
+        return self.coordinates
+
     def support_function(self, d):
         maxV = self.coordinates[0].dot(d)
         retV = self.coordinates[0]
@@ -130,7 +160,10 @@ class Ball:
         self.velocity = newV
 
     def set_center(self, x, y):
-        self.center = pygame.Vector2(x, y)
+        self.center = pygame.Vector2(x,y)
+        
+    def get_radius(self):
+        return self.radius
 
     def get_center(self):
         c = pygame.Vector2(self.center.x, self.center.y)
