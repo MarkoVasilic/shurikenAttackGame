@@ -39,6 +39,7 @@ select = "shuriken"
 arrow = entities.Arrow(bottom1, bottom2, bottom3, middle1, middle2, middle3, middle4, topArrow, 0, screen)
 entity_list.append(arrow)
 projectile = -1
+ticking = True
 while running:
 
     screen.fill((255, 255, 255))
@@ -62,9 +63,13 @@ while running:
                 fire = False
                 entity_list.remove(projectile)
                 projectile = -1
+            if event.key == pygame.K_p:
+                ticking = False
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
                 arrow.update_angle(0)
+            if event.key == pygame.K_p:
+                ticking = True
     if fire:
         top = arrow.getTop()
         bottom = arrow.getBottom()
@@ -82,7 +87,9 @@ while running:
     elif select == "shuriken":
         screen.blit(shuriken_image, (0, 0))
     for e in entity_list:
-        e.tick()
+        if ticking:
+            e.tick()
+        e.render()
     for e1 in entity_list:
         if e1 == arrow:
             continue
@@ -93,5 +100,7 @@ while running:
                 continue
             if entities.collision(e1, e2):
                 print("COLLISION")
+            else :
+                print("NO")
     # print(gjk.gjk(shuriken, ball))
     pygame.display.update()

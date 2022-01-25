@@ -24,7 +24,7 @@ def support_function_polygon(points : [], d : pygame.Vector2):
             maxV = newV
             retV = v
     
-    return retV.normalize()
+    return retV
 
 def support_function_circle(circle : (pygame.Vector2, float), d : pygame.Vector2):
     retV = circle[0] + circle[1]*d
