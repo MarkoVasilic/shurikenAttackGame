@@ -118,7 +118,6 @@ class Square:
             self.move_pattern_time = 0
             self.move_pattern_index = (self.move_pattern_index + 1) % len(self.move_pattern)
             self.velocity = pygame.Vector2(self.move_pattern[self.move_pattern_index][0])
-            print(self.velocity)
         
         self.move_pattern_time += 1
         
