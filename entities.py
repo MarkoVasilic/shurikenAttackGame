@@ -81,6 +81,8 @@ class Arrow:
     def tick(self):
         self.age = self.age + 1
         self.update_coordinates()
+    
+    def render(self):
         pygame.draw.polygon(self.screen, (69, 0, 0), self.arrow_coordinates)
 
 
@@ -118,7 +120,6 @@ class Square:
             self.move_pattern_time = 0
             self.move_pattern_index = (self.move_pattern_index + 1) % len(self.move_pattern)
             self.velocity = pygame.Vector2(self.move_pattern[self.move_pattern_index][0])
-            print(self.velocity)
         
         self.move_pattern_time += 1
         
@@ -138,6 +139,8 @@ class Square:
     def tick(self):
         self.age = self.age + 1
         self.move()
+        
+    def render(self):
         pygame.draw.polygon(self.screen, (0, 255, 0), [self.coordinates[0], self.coordinates[1], self.coordinates[2], self.coordinates[3]])
 
 
@@ -177,6 +180,8 @@ class Ball:
     def tick(self):
         self.age = self.age + 1
         self.update_pos()
+        
+    def render(self):
         pygame.draw.circle(self.screen, (69, 0, 0), self.center, self.radius)
 
 
@@ -253,6 +258,8 @@ class Shuriken:
         self.update_pos()
         self.update_angle()
         self.update_polygons()
+    
+    def render(self):
         for i in self.blades :
             pygame.draw.polygon(self.screen, (0, 0, 69), i)
             for j in i:

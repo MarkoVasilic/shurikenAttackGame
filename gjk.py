@@ -27,12 +27,16 @@ def support_function_polygon(points : [], d : pygame.Vector2):
     return retV
 
 def support_function_circle(circle : (pygame.Vector2, float), d : pygame.Vector2):
-    return (circle[0] + (circle[1] * d)).normalize()
+    retV = circle[0] + circle[1]*d
+    return retV.normalize()
 
 def support_point(s1, s2, d):
-    return s1[2](s1[1], d) - s2[2](s2[1], d)
+    a = s1[2](s1[1], d) - s2[2](s2[1], -d)
+    return a
 
 def gjk(s1, s2):
+    if s1[0] == s2[0]:
+        return True
     d = normalize(s1[0] - s2[0])
     simplex = [support_point(s1, s2, d)]
     d = ORIGIN - simplex[0]
