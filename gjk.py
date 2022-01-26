@@ -2,6 +2,7 @@ import pygame
 
 ORIGIN = pygame.Vector2(0, 0)
 
+
 def cross_product(v1, v2):
     x0 = v1[0]
     x1 = v1[1]
@@ -13,7 +14,8 @@ def cross_product(v1, v2):
 def normalize(v):
     return v / v.magnitude()
 
-def support_function_polygon(points : [], d : pygame.Vector2):
+
+def support_function_polygon(points: [], d: pygame.Vector2):
     maxV = points[0].dot(d)
     retV = points[0]
     for v in points:
@@ -21,16 +23,19 @@ def support_function_polygon(points : [], d : pygame.Vector2):
         if maxV < newV:
             maxV = newV
             retV = v
-    
+
     return retV
 
-def support_function_circle(circle : (pygame.Vector2, float), d : pygame.Vector2):
-    retV = circle[0] + circle[1]*d.normalize()
+
+def support_function_circle(circle: (pygame.Vector2, float), d: pygame.Vector2):
+    retV = circle[0] + circle[1] * d.normalize()
     return retV
+
 
 def support_point(s1, s2, d):
     a = s1[2](s1[1], d) - s2[2](s2[1], -d)
     return a
+
 
 def gjk(s1, s2):
     if s1[0] == s2[0]:
@@ -46,11 +51,13 @@ def gjk(s1, s2):
         if handleSimplex(simplex, d):
             return True
 
+
 def handleSimplex(simplex, d):
     if len(simplex) == 2:
         return lineCase(simplex, d)
     else:
         return triangleCase(simplex, d)
+
 
 def lineCase(simplex, d):
     B, A = simplex
@@ -64,6 +71,7 @@ def lineCase(simplex, d):
         d[0] = AO[0]
         d[1] = AO[1]
     return False
+
 
 def triangleCase(simplex, d):
     C, B, A = simplex
