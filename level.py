@@ -21,7 +21,7 @@ bottom_right = pygame.Vector2(430, 280)
 
 def level1(screen):
     entity_list = [entities.Arrow(bottom1, bottom2, bottom3, middle1, middle2, middle3, middle4, topArrow, 0, screen),
-                   entities.Square(top_left, top_right, bottom_left, bottom_right, [((30, 250), 200), ((770, 250), 200)], screen),
+                   entities.Square(pygame.Vector2(top_left), pygame.Vector2(top_right), pygame.Vector2(bottom_left), pygame.Vector2(bottom_right), [((30, 250), 100), ((770, 250), 200), ((400, 250), 100)], screen),
                    entities.Wall(pygame.Vector2(0, 350), pygame.Vector2(160, 350),
                                  pygame.Vector2(0, 360), pygame.Vector2(160, 360),
                                  screen, (169, 169, 169), True),
@@ -36,7 +36,7 @@ def level1(screen):
 
 def level2(screen):
     entity_list = [entities.Arrow(bottom1, bottom2, bottom3, middle1, middle2, middle3, middle4, topArrow, 0, screen),
-                   entities.Square(top_left, top_right, bottom_left, bottom_right, [((30, 250), 200), ((770, 250), 200)], screen),
+                   entities.Square(pygame.Vector2(top_left), pygame.Vector2(top_right), pygame.Vector2(bottom_left), pygame.Vector2(bottom_right), [((30, 250), 100), ((770, 250), 200), ((400, 250), 100)], screen),
                    entities.Wall(pygame.Vector2(0, 350), pygame.Vector2(160, 350),
                                  pygame.Vector2(0, 360), pygame.Vector2(160, 360),
                                  screen, (169, 169, 169), True),
@@ -66,7 +66,7 @@ def create_new_wall(center, width, height, rotation = 0):
 def level3(screen):
     rotated_coordinates = create_new_wall(pygame.Vector2(650, 250), 160, 10, 60)
     entity_list = [entities.Arrow(bottom1, bottom2, bottom3, middle1, middle2, middle3, middle4, topArrow, 0, screen),
-                   entities.Square(top_left, top_right, bottom_left, bottom_right, [((30, 250), 200), ((400, 250), 200)], screen),
+                   entities.Square(pygame.Vector2(top_left), pygame.Vector2(top_right), pygame.Vector2(bottom_left), pygame.Vector2(bottom_right), [((30, 250), 200), ((400, 250), 200)], screen),
                    entities.Wall(pygame.Vector2(0, 350), pygame.Vector2(160, 350),
                                  pygame.Vector2(0, 360), pygame.Vector2(160, 360),
                                  screen, (169, 169, 169), True),

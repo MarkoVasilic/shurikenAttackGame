@@ -25,6 +25,10 @@ textChamp = font.render('You Win', True, (0, 255, 0), (0, 0, 0))
 textChampRect = textChamp.get_rect()
 textChampRect.center = (400, 100)
 
+textMenu = font.render('Press space to start', True, (0, 255, 0), (0, 0, 0))
+textMenuRect = textMenu.get_rect()
+textMenuRect.center = (400, 100)
+
 fire = False
 running = True
 level_uploaded = False
