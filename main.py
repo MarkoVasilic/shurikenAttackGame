@@ -12,7 +12,7 @@ ball_image = pygame.transform.smoothscale(ball_image, (30, 30))
 shuriken_image = pygame.image.load('images/shuriken.png')
 shuriken_image = pygame.transform.smoothscale(shuriken_image, (30, 30))
 
-font = pygame.font.Font('freesansbold.ttf', 32)
+font = pygame.font.Font('font/GothicA1-Black.ttf', 32)
 textWin = font.render('Level Passed', True, (0, 255, 0), (0, 0, 0))
 textWinRect = textWin.get_rect()
 textWinRect.center = (400, 100)
