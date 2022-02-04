@@ -25,10 +25,6 @@ textChamp = font.render('You Win', True, (0, 255, 0), (0, 0, 0))
 textChampRect = textChamp.get_rect()
 textChampRect.center = (400, 100)
 
-textMenu = font.render('Press space to start', True, (0, 255, 0), (0, 0, 0))
-textMenuRect = textMenu.get_rect()
-textMenuRect.center = (400, 100)
-
 fire = False
 running = True
 level_uploaded = False
@@ -87,7 +83,8 @@ while running:
             if event.key == pygame.K_p:
                 ticking = False
             if event.key == pygame.K_n:
-                removeProjectile = True
+                if not projectile == -1:
+                    removeProjectile = True
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
                 entity_list[0].update_angle(0)
