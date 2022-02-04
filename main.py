@@ -125,9 +125,9 @@ while running:
                     fire = False
                     number_of_projectiles = number_of_projectiles - 1
                     projectile = -1
-                elif (isinstance(e1, entities.Wall) and isinstance(e2, entities.Shuriken) and e1.is_strong == False) \
+                elif (isinstance(e1, entities.Wall) and isinstance(e2, entities.Shuriken) and not e1.is_strong) \
                         or (
-                        isinstance(e1, entities.Shuriken) and isinstance(e2, entities.Wall) and e2.is_strong == False):
+                        isinstance(e1, entities.Shuriken) and isinstance(e2, entities.Wall) and not e2.is_strong):
                     handle_collision.weak_wall_shuriken_collision(e1, e2, entity_list)
                     fire = False
                     number_of_projectiles = number_of_projectiles - 1
