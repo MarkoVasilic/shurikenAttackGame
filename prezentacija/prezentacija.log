@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2022.1.7)  5 FEB 2022 17:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2022.1.7)  5 FEB 2022 18:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1050,19 +1050,14 @@ Package pdftex.def Info: ./images/shuriken.png  used on input line 190.
  [15
 
  <./images/shuriken.png>]
-<./images/odbijanje1.png, id=437, 950.55125pt x 560.0925pt>
-File: ./images/odbijanje1.png Graphic file (type png)
-<use ./images/odbijanje1.png>
-Package pdftex.def Info: ./images/odbijanje1.png  used on input line 197.
-(pdftex.def)             Requested size: 323.18315pt x 190.42892pt.
+<./images/odbijanje3.png, id=437, 390.45876pt x 219.82124pt>
+File: ./images/odbijanje3.png Graphic file (type png)
+<use ./images/odbijanje3.png>
+Package pdftex.def Info: ./images/odbijanje3.png  used on input line 197.
+(pdftex.def)             Requested size: 292.84334pt x 164.86551pt.
+ [16
 
-Overfull \hbox (15.89328pt too wide) in paragraph at lines 197--197
-[][]  
- []
-
-[16
-
- <./images/odbijanje1.png>]
+ <./images/odbijanje3.png>]
 <./images/odbijanje2.png, id=464, 447.6725pt x 254.9525pt>
 File: ./images/odbijanje2.png Graphic file (type png)
 <use ./images/odbijanje2.png>
@@ -1071,14 +1066,19 @@ Package pdftex.def Info: ./images/odbijanje2.png  used on input line 203.
  [17
 
  <./images/odbijanje2.png>]
-<./images/odbijanje3.png, id=492, 390.45876pt x 219.82124pt>
-File: ./images/odbijanje3.png Graphic file (type png)
-<use ./images/odbijanje3.png>
-Package pdftex.def Info: ./images/odbijanje3.png  used on input line 209.
-(pdftex.def)             Requested size: 292.84334pt x 164.86551pt.
- [18
+<./images/odbijanje1.png, id=492, 950.55125pt x 560.0925pt>
+File: ./images/odbijanje1.png Graphic file (type png)
+<use ./images/odbijanje1.png>
+Package pdftex.def Info: ./images/odbijanje1.png  used on input line 209.
+(pdftex.def)             Requested size: 323.18315pt x 190.42892pt.
 
- <./images/odbijanje3.png>] [19
+Overfull \hbox (15.89328pt too wide) in paragraph at lines 209--209
+[][]  
+ []
+
+[18
+
+ <./images/odbijanje1.png>] [19
 
 ]
 <./images/lvl1.png, id=545, 803.0pt x 602.25pt>
@@ -1132,7 +1132,7 @@ Here is how much of TeX's memory you used:
 texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-dist/fonts/type1/pub
 lic/amsfonts/symbols/msam10.pfb>
-Output written on prezentacija.pdf (23 pages, 3218331 bytes).
+Output written on prezentacija.pdf (23 pages, 3218328 bytes).
 PDF statistics:
  678 PDF objects out of 1000 (max. 8388607)
  588 compressed objects within 6 object streams
