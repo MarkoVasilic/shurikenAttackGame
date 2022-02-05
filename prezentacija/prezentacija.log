@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2022.1.7)  5 FEB 2022 18:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2022.1.7)  5 FEB 2022 18:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -941,144 +941,143 @@ Package pdftex.def Info: ./images/strelica.png  used on input line 61.
 > <./images/r.png> <./images/n.png> <./images/strelica.png>] [4
 
 ]
-<./images/rk4.png, id=135, 541.02126pt x 137.51375pt>
-File: ./images/rk4.png Graphic file (type png)
-<use ./images/rk4.png>
-Package pdftex.def Info: ./images/rk4.png  used on input line 84.
-(pdftex.def)             Requested size: 270.50996pt x 68.7567pt.
- [5
-
- <./images/rk4.png>]
-<./images/rk4pos.png, id=162, 711.65875pt x 249.93375pt>
-File: ./images/rk4pos.png Graphic file (type png)
-<use ./images/rk4pos.png>
-Package pdftex.def Info: ./images/rk4pos.png  used on input line 96.
-(pdftex.def)             Requested size: 213.49927pt x 74.9807pt.
-<./images/rk4angle.png, id=163, 758.835pt x 181.67876pt>
-File: ./images/rk4angle.png Graphic file (type png)
-<use ./images/rk4angle.png>
-Package pdftex.def Info: ./images/rk4angle.png  used on input line 96.
-(pdftex.def)             Requested size: 227.65225pt x 54.50404pt.
- [6
-
- <./images/rk4pos.png> <./images/rk4angle.png>]
-<./images/gjk.png, id=189, 411.5375pt x 276.03125pt>
+<./images/gjk.png, id=135, 411.5375pt x 276.03125pt>
 File: ./images/gjk.png Graphic file (type png)
 <use ./images/gjk.png>
-Package pdftex.def Info: ./images/gjk.png  used on input line 106.
+Package pdftex.def Info: ./images/gjk.png  used on input line 82.
 (pdftex.def)             Requested size: 205.76825pt x 138.01527pt.
- [7
+ [5
 
  <./images/gjk.png>]
-<./images/gjk1.png, id=216, 1779.64874pt x 919.435pt>
+<./images/gjk1.png, id=162, 1779.64874pt x 919.435pt>
 File: ./images/gjk1.png Graphic file (type png)
 <use ./images/gjk1.png>
-Package pdftex.def Info: ./images/gjk1.png  used on input line 115.
+Package pdftex.def Info: ./images/gjk1.png  used on input line 91.
 (pdftex.def)             Requested size: 302.53629pt x 156.30188pt.
- [8
+ [6
 
  <./images/gjk1.png>]
-<./images/gjk2.png, id=243, 1890.06125pt x 1049.9225pt>
+<./images/gjk2.png, id=189, 1890.06125pt x 1049.9225pt>
 File: ./images/gjk2.png Graphic file (type png)
 <use ./images/gjk2.png>
-Package pdftex.def Info: ./images/gjk2.png  used on input line 124.
+Package pdftex.def Info: ./images/gjk2.png  used on input line 100.
 (pdftex.def)             Requested size: 306.19402pt x 170.0897pt.
- [9
+ [7
 
  <./images/gjk2.png>]
-<./images/gjk3.png, id=271, 898.35625pt x 342.27875pt>
+<./images/gjk3.png, id=217, 898.35625pt x 342.27875pt>
 File: ./images/gjk3.png Graphic file (type png)
 <use ./images/gjk3.png>
-Package pdftex.def Info: ./images/gjk3.png  used on input line 133.
+Package pdftex.def Info: ./images/gjk3.png  used on input line 109.
 (pdftex.def)             Requested size: 296.45848pt x 112.95232pt.
- [10
+ [8
 
  <./images/gjk3.png>]
-<./images/gjk4.png, id=298, 889.3225pt x 371.3875pt>
+<./images/gjk4.png, id=244, 889.3225pt x 371.3875pt>
 File: ./images/gjk4.png Graphic file (type png)
 <use ./images/gjk4.png>
-Package pdftex.def Info: ./images/gjk4.png  used on input line 142.
+Package pdftex.def Info: ./images/gjk4.png  used on input line 118.
 (pdftex.def)             Requested size: 293.47733pt x 122.55824pt.
+ [9
+
+ <./images/gjk4.png>]
+<./images/gjk5.png, id=272, 868.24374pt x 643.40375pt>
+File: ./images/gjk5.png Graphic file (type png)
+<use ./images/gjk5.png>
+Package pdftex.def Info: ./images/gjk5.png  used on input line 127.
+(pdftex.def)             Requested size: 260.47513pt x 193.02261pt.
+ [10
+
+ <./images/gjk5.png>]
+<./images/gjk6.png, id=299, 1137.24875pt x 569.12625pt>
+File: ./images/gjk6.png Graphic file (type png)
+<use ./images/gjk6.png>
+Package pdftex.def Info: ./images/gjk6.png  used on input line 145.
+(pdftex.def)             Requested size: 160.35904pt x 80.25027pt.
+
+Overfull \hbox (6.71411pt too wide) in paragraph at lines 145--145
+ [] 
+ []
+
+<./images/gjk7.png, id=300, 1146.2825pt x 584.1825pt>
+File: ./images/gjk7.png Graphic file (type png)
+<use ./images/gjk7.png>
+Package pdftex.def Info: ./images/gjk7.png  used on input line 145.
+(pdftex.def)             Requested size: 160.47845pt x 81.78499pt.
+
+Overfull \hbox (6.83353pt too wide) in paragraph at lines 145--145
+ [] 
+ []
 
 [11
 
- <./images/gjk4.png>]
-<./images/gjk5.png, id=325, 868.24374pt x 643.40375pt>
-File: ./images/gjk5.png Graphic file (type png)
-<use ./images/gjk5.png>
-Package pdftex.def Info: ./images/gjk5.png  used on input line 151.
-(pdftex.def)             Requested size: 260.47513pt x 193.02261pt.
- [12
-
- <./images/gjk5.png>]
-<./images/gjk6.png, id=352, 1137.24875pt x 569.12625pt>
-File: ./images/gjk6.png Graphic file (type png)
-<use ./images/gjk6.png>
-Package pdftex.def Info: ./images/gjk6.png  used on input line 169.
-(pdftex.def)             Requested size: 160.35904pt x 80.25027pt.
-
-Overfull \hbox (6.71411pt too wide) in paragraph at lines 169--169
- [] 
- []
-
-<./images/gjk7.png, id=353, 1146.2825pt x 584.1825pt>
-File: ./images/gjk7.png Graphic file (type png)
-<use ./images/gjk7.png>
-Package pdftex.def Info: ./images/gjk7.png  used on input line 169.
-(pdftex.def)             Requested size: 160.47845pt x 81.78499pt.
-
-Overfull \hbox (6.83353pt too wide) in paragraph at lines 169--169
- [] 
- []
-
-[13
-
  <./images/gjk6.png> <./images/gjk7.png>]
-<./images/gjk8.png, id=383, 1111.15125pt x 623.32875pt>
+<./images/gjk8.png, id=328, 1111.15125pt x 623.32875pt>
 File: ./images/gjk8.png Graphic file (type png)
 <use ./images/gjk8.png>
-Package pdftex.def Info: ./images/gjk8.png  used on input line 178.
+Package pdftex.def Info: ./images/gjk8.png  used on input line 154.
 (pdftex.def)             Requested size: 288.8925pt x 162.06165pt.
- [14
+ [12
 
  <./images/gjk8.png>]
-<./images/shuriken.png, id=410, 481.04718pt x 484.05844pt>
-File: ./images/shuriken.png Graphic file (type png)
-<use ./images/shuriken.png>
-Package pdftex.def Info: ./images/shuriken.png  used on input line 190.
-(pdftex.def)             Requested size: 144.31526pt x 145.21864pt.
- [15
-
- <./images/shuriken.png>]
-<./images/odbijanje3.png, id=437, 390.45876pt x 219.82124pt>
+<./images/odbijanje3.png, id=355, 390.45876pt x 219.82124pt>
 File: ./images/odbijanje3.png Graphic file (type png)
 <use ./images/odbijanje3.png>
-Package pdftex.def Info: ./images/odbijanje3.png  used on input line 197.
+Package pdftex.def Info: ./images/odbijanje3.png  used on input line 161.
 (pdftex.def)             Requested size: 292.84334pt x 164.86551pt.
- [16
+ [13
 
  <./images/odbijanje3.png>]
-<./images/odbijanje2.png, id=464, 447.6725pt x 254.9525pt>
+<./images/odbijanje2.png, id=384, 447.6725pt x 254.9525pt>
 File: ./images/odbijanje2.png Graphic file (type png)
 <use ./images/odbijanje2.png>
-Package pdftex.def Info: ./images/odbijanje2.png  used on input line 203.
+Package pdftex.def Info: ./images/odbijanje2.png  used on input line 167.
 (pdftex.def)             Requested size: 299.93901pt x 170.81728pt.
- [17
+ [14
 
  <./images/odbijanje2.png>]
-<./images/odbijanje1.png, id=492, 950.55125pt x 560.0925pt>
+<./images/odbijanje1.png, id=411, 950.55125pt x 560.0925pt>
 File: ./images/odbijanje1.png Graphic file (type png)
 <use ./images/odbijanje1.png>
-Package pdftex.def Info: ./images/odbijanje1.png  used on input line 209.
+Package pdftex.def Info: ./images/odbijanje1.png  used on input line 173.
 (pdftex.def)             Requested size: 323.18315pt x 190.42892pt.
 
-Overfull \hbox (15.89328pt too wide) in paragraph at lines 209--209
+Overfull \hbox (15.89328pt too wide) in paragraph at lines 173--173
 [][]  
  []
 
-[18
+[15
 
- <./images/odbijanje1.png>] [19
+ <./images/odbijanje1.png>]
+<./images/shuriken.png, id=438, 481.04718pt x 484.05844pt>
+File: ./images/shuriken.png Graphic file (type png)
+<use ./images/shuriken.png>
+Package pdftex.def Info: ./images/shuriken.png  used on input line 185.
+(pdftex.def)             Requested size: 144.31526pt x 145.21864pt.
+ [16
+
+ <./images/shuriken.png>]
+<./images/rk4.png, id=465, 541.02126pt x 137.51375pt>
+File: ./images/rk4.png Graphic file (type png)
+<use ./images/rk4.png>
+Package pdftex.def Info: ./images/rk4.png  used on input line 197.
+(pdftex.def)             Requested size: 270.50996pt x 68.7567pt.
+ [17
+
+ <./images/rk4.png>]
+<./images/rk4pos.png, id=492, 711.65875pt x 249.93375pt>
+File: ./images/rk4pos.png Graphic file (type png)
+<use ./images/rk4pos.png>
+Package pdftex.def Info: ./images/rk4pos.png  used on input line 209.
+(pdftex.def)             Requested size: 213.49927pt x 74.9807pt.
+<./images/rk4angle.png, id=493, 758.835pt x 181.67876pt>
+File: ./images/rk4angle.png Graphic file (type png)
+<use ./images/rk4angle.png>
+Package pdftex.def Info: ./images/rk4angle.png  used on input line 209.
+(pdftex.def)             Requested size: 227.65225pt x 54.50404pt.
+ [18
+
+ <./images/rk4pos.png> <./images/rk4angle.png>] [19
 
 ]
 <./images/lvl1.png, id=545, 803.0pt x 602.25pt>
@@ -1116,7 +1115,8 @@ Package pdftex.def Info: ./images/lvl3.png  used on input line 251.
 \tf@snm=\write8
 \openout8 = `prezentacija.snm'.
 
- (./prezentacija.aux)
+
+(./prezentacija.aux)
 Package rerunfilecheck Info: File `prezentacija.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
@@ -1132,7 +1132,7 @@ Here is how much of TeX's memory you used:
 texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-dist/fonts/type1/pub
 lic/amsfonts/symbols/msam10.pfb>
-Output written on prezentacija.pdf (23 pages, 3218328 bytes).
+Output written on prezentacija.pdf (23 pages, 3218334 bytes).
 PDF statistics:
  678 PDF objects out of 1000 (max. 8388607)
  588 compressed objects within 6 object streams

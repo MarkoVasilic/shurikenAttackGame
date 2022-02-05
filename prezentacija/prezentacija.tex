@@ -23,7 +23,7 @@
 		
 		Igrač bira projektil kojim gađa metu, ali na polju se nalaze prepreke u vidu debelih i tankih zidova.
 
-		Igrač mora da izabere projektil koji će najbolje obaviti posao. Šuriken će uništiti tanke zidove, lopta će se odbiti od debele zidove. Treba kombinovati projektile tako da se oslobodi put do mete.
+		Igrač mora da izabere projektil koji će najbolje obaviti posao. Šuriken će uništiti tanke zidove, lopta će se odbiti od sve zidove. Treba kombinovati projektile tako da se oslobodi put do mete.
 		
 		\column{0.6\textwidth}
 		\fbox{\includegraphics[scale=0.22]{./images/igrica.png}}
@@ -69,30 +69,6 @@
 		\item Detekcija kolizije\\
 		\textbf{Rešenje} - GJK
 	\end{itemize}
-\end{frame}
-
-\begin{frame}
-	\frametitle{Kinematika}
-	Pravolinijsko i rotaciono kretanje je pretstavljeno kao diferencijalna jednačina drugog reda.
-	
-	Pomoću RK4 algoritma se aproksimira vrednost datih funkcija kretanja pri svakom koraku igrice.
-	
-	\vspace{0.8cm}
-	\begin{center}
-		\includegraphics[scale=0.5]{./images/rk4.png}
-	\end{center}
-\end{frame}
-
-\begin{frame}
-	\frametitle{RK4}
-	\begin{center}
-		Pravolinijsko kretanje
-		\includegraphics[scale=0.3]{./images/rk4pos.png}
-		
-		\vspace{0.3cm}
-		Rotaciono kretanje
-		\includegraphics[scale=0.3]{./images/rk4angle.png}
-	\end{center}
 \end{frame}
 
 \begin{frame}
@@ -178,18 +154,6 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{Detekcija kolizije - šuriken}
-	Šuriken nije konveksan poligon, tako da gjk ne bi radio za njega.
-
-	Ovaj problem je rešen tako što se šuriken posmatra kao skup 4 konveksna poligona. U koliko se detektuje kolizija sa bilo kojim od poligona koji ga sačinjavaju, smatra se da je šuriken došao u kontakt sa nečim.
-	
-	\vspace{0.4cm}
-	\begin{center}
-		\includegraphics[scale=0.3]{./images/shuriken.png}
-	\end{center}
-\end{frame}
-
-\begin{frame}
 	\frametitle{Odbijanje o zidove}
 	Projektil "lopta" će se odbiti od zidove.
 	
@@ -206,6 +170,42 @@
 	\frametitle{Odbijanje o zidove}
 	
 	\includegraphics[scale=0.34]{./images/odbijanje1.png}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Detekcija kolizije - šuriken}
+	Šuriken nije konveksan poligon, tako da gjk ne bi radio za njega.
+
+	Ovaj problem je rešen tako što se šuriken posmatra kao skup 4 konveksna poligona. U koliko se detektuje kolizija sa bilo kojim od poligona koji ga sačinjavaju, smatra se da je šuriken došao u kontakt sa nečim.
+	
+	\vspace{0.4cm}
+	\begin{center}
+		\includegraphics[scale=0.3]{./images/shuriken.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Kinematika}
+	Pravolinijsko i rotaciono kretanje je pretstavljeno kao diferencijalna jednačina drugog reda.
+	
+	Pomoću RK4 algoritma se aproksimira vrednost datih funkcija kretanja pri svakom koraku igrice.
+	
+	\vspace{0.8cm}
+	\begin{center}
+		\includegraphics[scale=0.5]{./images/rk4.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+	\frametitle{RK4}
+	\begin{center}
+		Pravolinijsko kretanje
+		\includegraphics[scale=0.3]{./images/rk4pos.png}
+		
+		\vspace{0.3cm}
+		Rotaciono kretanje
+		\includegraphics[scale=0.3]{./images/rk4angle.png}
+	\end{center}
 \end{frame}
 
 \begin{frame}
