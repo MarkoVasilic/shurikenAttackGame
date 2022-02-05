@@ -262,12 +262,25 @@ class Shuriken:
             return False
 
     def update_pos(self):  # metoda za azuriranje polozaja pomocu rk4
-        self.center[0] = rk4It(self.age, self.center[0], 1, lambda t, x: self.velocity[0])
-        self.center[1] = rk4It(self.age, self.center[1], 1, lambda t, y: self.velocity[1])
+        self.center[0] = rk4It( self.age, 
+                                self.center[0], 
+                                1, 
+                                lambda t, x: self.velocity[0]
+                                )
+        
+        self.center[1] = rk4It( self.age, 
+                                self.center[1], 
+                                1, 
+                                lambda t, y: self.velocity[1]
+                                )
 
     def update_angle(self):  # metoda za azuriranje ugla rotacije pomocu rk4
         if self.angular_velocity != (0, 0):
-            self.angle = rk4It(self.age, self.angle, 1, lambda t, theta: self.angular_velocity)
+            self.angle = rk4It( self.age, 
+                                self.angle, 
+                                1, 
+                                lambda t,  theta: self.angular_velocity
+                                )
 
     # metoda za azuriranje poligona koji sacinjavaju suriken
     def update_polygons(self):

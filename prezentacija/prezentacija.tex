@@ -84,10 +84,96 @@
 \end{frame}
 
 \begin{frame}
+	\frametitle{RK4}
+	\begin{center}
+		Pravolinijsko kretanje
+		\includegraphics[scale=0.3]{./images/rk4pos.png}
+		
+		\vspace{0.3cm}
+		Rotaciono kretanje
+		\includegraphics[scale=0.3]{./images/rk4angle.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}
 	\frametitle{Detekcija kolizije}
 	Detekcija kolizije funkcioniše za bilo koju kombinaciju krugova, poligona i duži
+	
+	Za detekciju kolizije koristi se GJK algoritam.
 	\begin{center}
 		\includegraphics[scale=0.5]{./images/gjk.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+	\frametitle{GJK}
+	\Large
+	Minkowski razlika
+	\begin{center}
+		\includegraphics[scale=0.17]{./images/gjk1.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+	\frametitle{GJK}
+	\Large
+	Određivanje support pointa
+	\begin{center}
+		\includegraphics[scale=0.162]{./images/gjk2.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+	\frametitle{GJK}
+	\Large
+	Support point za krug
+	\begin{center}
+		\includegraphics[scale=0.33]{./images/gjk3.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+	\frametitle{GJK}
+	\Large
+	Support point za poligon
+	\begin{center}
+		\includegraphics[scale=0.33]{./images/gjk4.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+	\frametitle{GJK}
+	\Large
+	Određivanje vektorskog proizvoda
+	\begin{center}
+		\includegraphics[scale=0.3]{./images/gjk5.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+	\frametitle{GJK}
+	\begin{columns}
+		\column{0.5\textwidth}
+		\begin{center}
+			\Large
+			Uspešno
+			\includegraphics[scale=0.141]{./images/gjk6.png}
+		\end{center}
+		\column{0.5\textwidth}
+		\begin{center}
+			\Large
+			Neuspešno
+			\includegraphics[scale=0.14]{./images/gjk7.png}
+		\end{center}
+	\end{columns}
+\end{frame}
+
+\begin{frame}
+	\frametitle{GJK}
+	\Large
+	Određivanje da li trougao sadrži koordinatni početak
+	\begin{center}
+		\includegraphics[scale=0.26]{./images/gjk8.png}
 	\end{center}
 \end{frame}
 
@@ -97,19 +183,29 @@
 
 	Ovaj problem je rešen tako što se šuriken posmatra kao skup 4 konveksna poligona. U koliko se detektuje kolizija sa bilo kojim od poligona koji ga sačinjavaju, smatra se da je šuriken došao u kontakt sa nečim.
 	
-	\vspace{1cm}
-	\includegraphics[scale=0.3]{./images/shurikencode.png}
+	\vspace{0.4cm}
+	\begin{center}
+		\includegraphics[scale=0.3]{./images/shuriken.png}
+	\end{center}
 \end{frame}
 
 \begin{frame}
 	\frametitle{Odbijanje o zidove}
 	Projektil "lopta" će se odbiti od zidove.
 	
-	\vspace{1cm}
-	\includegraphics[scale=0.4]{./images/ball.png}
+	\includegraphics[scale=0.34]{./images/odbijanje1.png}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Odbijanje o zidove}
 	
-	\vspace{1cm}
-	\includegraphics[scale=0.4]{./images/ball1.png}
+	\includegraphics[scale=0.67]{./images/odbijanje2.png}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Odbijanje o zidove}
+	
+	\includegraphics[scale=0.75]{./images/odbijanje3.png}
 \end{frame}
 
 \begin{frame}
